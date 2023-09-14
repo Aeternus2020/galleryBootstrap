@@ -1,0 +1,99 @@
+@mixin make-container($padding-x: $container-padding-x) {
+  padding-right: $padding-x;
+  padding-left: var(--bs-gutter-x, .75rem);
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+}
+
+.img_slider img {
+ margin: 5px;
+ border-radius: 2%;
+}
+
+.img_hospital {
+  overflow: hidden;
+  height: auto;
+}
+
+.custom-container {
+  @include make-container(30%);
+}
+
+.img_slider {
+  position: relative;
+  display: inline-block;
+}
+
+.row>* {
+  padding: 2px!important;
+}
+
+.image-zoom {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  transition: filter 0.3s ease;
+}
+
+.zoom-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/pictures/loupe.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 50px; 
+  opacity: 0; 
+  pointer-events: none; 
+  transition: opacity 0.3s ease;
+}
+
+.img_slider:hover .zoom-overlay {
+  opacity: 1;
+}
+
+.img_slider:hover .image-zoom {
+  filter: brightness(0.4); 
+}
+
+.list_img {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  transition: transform 0.5s;
+  will-change: transform;
+  position: relative;
+}
+
+.img {
+  width: 30%;
+  transition: transform 0.5s;
+}
+
+.img img {
+  width: 220px;
+  border-radius: 5%;
+  transition: transform 0.5s;
+}
+
+.active {
+  transform: scale(1.3);
+}
+
+.scroll{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.scroll button {
+  border-radius: 50%;
+}
+
+.scroll button:hover {
+  background-color: yellow;
+}
